@@ -10,9 +10,21 @@
 
   clickEvents = ['click'];
 
-  if (touchDevice) {
-    clickEvents.push('touchstart');
-  }
+  /*
+   * STILE HACKS
+   *
+   * Don't bind both touchstart and click - fastclick generates a click as well
+   * and thus triggers the hander twice causing the drop to begin opening then
+   * immediately close.
+   */
+
+  // if (touchDevice) {
+  //   clickEvents.push('touchstart');
+  // }
+
+  /*
+   * END STILE HACKS
+   */
 
   transitionEndEvents = {
     'WebkitTransition': 'webkitTransitionEnd',
